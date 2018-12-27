@@ -11,6 +11,19 @@ class UserController {
     }
 
 
+    async login({ request, auth, response, session }) {
+        const { email, password } = request.all();
+        try {
+            await auth.attempt(email, password);
+            return response.redirect('/');
+        } catch (error) {
+            session.flash({loginError: 'These credentials do not work.'})
+            return response.redirect('/login');
+        }
+    }
+
+
+
 }
 
-module.exports = UserController
+module.exports = UserController;

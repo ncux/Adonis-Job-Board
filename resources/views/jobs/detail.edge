@@ -1,0 +1,28 @@
+@layout('layouts.main')
+
+@section('title')
+Job Poster - Post your Job
+@endsection
+
+@section('extracss')
+{{ style('forms') }}
+@endsection
+
+@section('content')
+
+  <h3>{{ job.title }}</h3>
+
+  <div class="job-container2">
+    <div class="blank"></div>
+    <div class="job-info">
+
+      <p>{{ job.description }}</p>
+      <a href="{{job.link}}" class="btn btn-info my-1">Apply</a>
+          <a href="{{ route('JobController.edit', { id: job.id }) }}" class="btn btn-primary my-3">Edit</a>
+          <a href="{{ route('JobController.delete', { id: job.id }) }}" class="btn btn-danger my-3">Delete</a>
+    </div>
+  </div>
+
+
+
+@endsection

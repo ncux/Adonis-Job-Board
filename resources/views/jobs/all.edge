@@ -1,0 +1,27 @@
+@layout('layouts.main')
+
+@section('title')
+Job Poster - Post your Job
+@endsection
+
+@section('extracss')
+{{ style('forms') }}
+@endsection
+
+@section('content')
+
+<h2>My jobs</h2>
+
+  @each(job in jobs)
+  <div class="job-container2">
+    <div class="blank"></div>
+    <div class="job-info">
+      <a href="/jobs/detail/{{job.id}}" target="_blank"><h3>{{ job.title }}</h3></a>
+      <p>{{ job.description }}</p>
+    </div>
+  </div>
+  @endeach
+
+
+
+@endsection
